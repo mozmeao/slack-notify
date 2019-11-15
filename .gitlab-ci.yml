@@ -1,0 +1,19 @@
+stages:
+  - build
+  - notify
+
+build:
+  stage: build
+  tags:
+    - oregon-b-shell
+  script:
+    - docker build -t mozmeao/slack-notify .
+    - docker push mozmeao/slack-notify
+
+notify:
+  tags:
+    - iowa-a
+  image: mozmeao/slack-notify
+  script:
+    - slack-cli --help
+
