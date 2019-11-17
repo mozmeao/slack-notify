@@ -13,7 +13,7 @@ build:
 notify:
   stage: notify
   tags:
-    - iowa-a
+    - oregon-a
   image: mozmeao/slack-notify
   script:
     - slack-cli --help
